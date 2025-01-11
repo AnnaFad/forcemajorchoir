@@ -96,8 +96,8 @@ RETURNS TABLE (
     date_time_open TIMESTAMP,
     hour_for_registration INTEGER,
     is_deleted BOOLEAN,
-  	create_add TIMESTAMP,
-  	update_add TIMESTAMP
+  	create_at TIMESTAMP,
+  	update_at TIMESTAMP
 ) AS $$
 BEGIN	
 	SELECT CheckIsOpenReg(INPUT);
@@ -122,8 +122,8 @@ RETURNS TABLE (
     date_time_open TIMESTAMP,
     hour_for_registration INTEGER,
     is_deleted BOOLEAN,
-  	create_add TIMESTAMP,
-  	update_add TIMESTAMP)
+  	create_at TIMESTAMP,
+  	update_at TIMESTAMP)
 AS $$
 BEGIN
 RETURN QUERY
@@ -149,8 +149,8 @@ RETURNS TABLE (
     date_time_open TIMESTAMP,
     hour_for_registration INTEGER,
     is_deleted BOOLEAN,
-  	create_add TIMESTAMP,
-  	update_add TIMESTAMP)
+  	create_at TIMESTAMP,
+  	update_at TIMESTAMP)
 AS $$
 BEGIN
 RETURN QUERY
@@ -176,8 +176,8 @@ RETURNS TABLE (
     date_time_open TIMESTAMP,
     hour_for_registration INTEGER,
     is_deleted BOOLEAN,
-  	create_add TIMESTAMP,
-  	update_add TIMESTAMP)
+  	create_at TIMESTAMP,
+  	update_at TIMESTAMP)
 AS
 $$
 BEGIN
