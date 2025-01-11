@@ -7,7 +7,7 @@ CREATE OR REPLACE FUNCTION UpdateChorister(p_ID integer, p_first_name VARCHAR(20
         	last_name = p_last_name,
             description = p_description,
             photo = p_photo,
-            update_add = CURRENT_TIMESTAMP
+            update_at = CURRENT_TIMESTAMP
         WHERE choristers.ID = p_ID;
 	$$ LANGUAGE SQL;
     
@@ -18,7 +18,7 @@ CREATE OR REPLACE FUNCTION DeleteChorister(p_ID integer)
     ASSERT is_deleted = FALSE, 'Хорист % уже удалён', p_ID;
     UPDATE choristers
         SET is_deleted = TRUE,
-        	update_add = CURRENT_TIMESTAMP
+        	update_at = CURRENT_TIMESTAMP
         WHERE choristers.ID = p_ID;
 	END $$ LANGUAGE plpgSQL;
     
@@ -27,7 +27,7 @@ CREATE OR REPLACE FUNCTION UpdateUserPassward(p_ID integer, p_password_hash varc
 	RETURNS VOID AS $$
     UPDATE users
         SET password_hash = p_password_hash,
-        	update_add = CURRENT_TIMESTAMP
+        	update_at = CURRENT_TIMESTAMP
         WHERE users.ID = p_ID;
 	$$ LANGUAGE SQL;
 
@@ -38,7 +38,7 @@ CREATE OR REPLACE FUNCTION UpdateNews(p_ID integer, p_title VARCHAR(400), p_text
         SET title  = p_title,
         	text_news = p_text,
             photo = p_photo,
-            update_add = CURRENT_TIMESTAMP
+            update_at = CURRENT_TIMESTAMP
         WHERE news.ID = p_ID;
 $$ LANGUAGE SQL;
 
@@ -49,7 +49,7 @@ CREATE OR REPLACE FUNCTION DeleteNews(p_ID integer)
     ASSERT is_deleted = FALSE, 'Новость % уже удалёна', p_ID;
     UPDATE news
         SET is_deleted = TRUE,
-        	update_add = CURRENT_TIMESTAMP
+        	update_at = CURRENT_TIMESTAMP
         WHERE news.ID = p_ID;
 	END $$ LANGUAGE plpgSQL;
     
@@ -68,7 +68,7 @@ CREATE OR REPLACE FUNCTION UpdateEvent(p_ID integer, p_name_event VARCHAR(500), 
             date_time_open = p_date_time_open,
             hours_for_registration = p_hours_for_registration,
             registration_is_open = p_registration_is_open,
-            update_add = CURRENT_TIMESTAMP
+            update_at = CURRENT_TIMESTAMP
         WHERE events.ID = p_ID;
 $$ LANGUAGE SQL;
 
@@ -79,7 +79,7 @@ CREATE OR REPLACE FUNCTION DeletуEvent(p_ID integer)
     ASSERT is_deleted = FALSE, 'Мероприятие % уже удалёно', p_ID;
     UPDATE events
         SET is_deleted = TRUE,
-        	update_add = CURRENT_TIMESTAMP
+        	update_at = CURRENT_TIMESTAMP
         WHERE events.ID = p_ID;
 	END;
 $$ LANGUAGE plpgSQL;
@@ -93,7 +93,7 @@ CREATE OR REPLACE FUNCTION UpdateRehersal(p_ID integer, p_title VARCHAR(400), p_
         	date_start = p_date_start,
             days_for_registration = p_days_for_registration,
             is_last = p_is_last,
-            update_add = CURRENT_TIMESTAMP
+            update_at = CURRENT_TIMESTAMP
         WHERE rehersals.ID = p_ID;
 $$ LANGUAGE SQL;
 
