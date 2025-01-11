@@ -6,8 +6,8 @@ CREATE TABLE applicants (
   data_applicant jsonb NOT NULL,
   status  applicant_status  NOT NULL,
   rehersal_ID integer NOT NULL,
-  create_add timestamp NOT NULL,
-  update_add timestamp
+  create_at timestamp NOT NULL,
+  update_at timestamp
 );
 
 CREATE TABLE rehersals (
@@ -16,8 +16,8 @@ CREATE TABLE rehersals (
   date_start timestamp NOT NULL,
   days_for_registration integer,
   is_last boolean NOT NULL,
-  create_add timestamp NOT NULL,
-  update_add timestamp
+  create_at timestamp NOT NULL,
+  update_at timestamp
 );
 
 CREATE TABLE choristers (
@@ -28,16 +28,16 @@ CREATE TABLE choristers (
   description text,
   photo text NOT NULL,
   is_deleted boolean NOT NULL,
-  create_add timestamp NOT NULL,
-  update_add timestamp
+  create_at timestamp NOT NULL,
+  update_at timestamp
 );
 
 CREATE TABLE visitors (
   ID serial PRIMARY KEY NOT NULL,
   data_visitor jsonb NOT NULL,
   event_ID integer NOT NULL,
-  create_add timestamp NOT NULL,
-  update_add timestamp
+  create_at timestamp NOT NULL,
+  update_at timestamp
 );
 
 CREATE TABLE events (
@@ -52,8 +52,8 @@ CREATE TABLE events (
   date_time_open timestamp,
   hours_for_registration integer,
   is_deleted boolean NOT NULL,
-  create_add timestamp NOT NULL,
-  update_add timestamp
+  create_at timestamp NOT NULL,
+  update_at timestamp
 );
 
 CREATE TABLE news (
@@ -62,8 +62,8 @@ CREATE TABLE news (
   text_news text NOT NULL,
   photo text NOT NULL,
   is_deleted boolean NOT NULL,
-  create_add timestamp NOT NULL,
-  update_add timestamp
+  create_at timestamp NOT NULL,
+  update_at timestamp
 );
 
 CREATE TABLE users (
@@ -71,13 +71,11 @@ CREATE TABLE users (
   email varchar(100) NOT NULL,
   password_hash varchar(100) NOT NULL,
   role_user roles NOT NULL,
-  create_add timestamp NOT NULL,
-  update_add timestamp
+  create_at timestamp NOT NULL,
+  update_at timestamp
 );
 
 ALTER TABLE visitors ADD FOREIGN KEY (event_ID) REFERENCES events (ID);
 
 ALTER TABLE applicants ADD FOREIGN KEY (rehersal_ID) REFERENCES rehersals (ID);
-
-
 
