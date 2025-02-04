@@ -1,0 +1,141 @@
+
+ <!doctype html> 
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8" content="width=device-width">
+        <link rel="stylesheet" href="{% static 'back/style.css' %}">
+        <title>Хор-бэнд НИУ ВШЭ Force МАЖОР</title>
+    </head>
+    <body>
+        <header class="header">
+            <div class="header_content">
+                <div>
+                <nav class="menu">
+                        <a href="{% url 'back:index' %}">
+                            <img src="{% static 'back/images/logo.svg' %}" alt="Logo">
+                        </a>
+                            <ul class="menu_list">
+                                <li>
+                                    <a href="#!" class="menu_link">о нас</a>
+                                    <ul class="submenu_list">
+                                        <li>
+                                            <a href="#!" class="submenu_link">о хоре</a>
+                                        </li>
+                                        <li>
+                                            <a href="#!" class="submenu_link">галерея</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#!">набор</a>
+                                    <ul class="submenu_list">
+                                        <li>
+                                            <a href="#!" class="submenu_link">о наборе</a>
+                                        </li>
+                                        <li>
+                                            <a href="#!" class="submenu_link">форма набора</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <a href="#!">новости</a>
+                                <a href="#!">мероприятия</a>
+                                <a href="#!">сотрудничество</a>
+                            </ul>
+                    </nav>
+                    <div class="page_title">
+                        <h2>ХОР-БЭНД НИУ ВШЭ</h2>
+                        <h1>FORCE МАЖОР</h1>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <div class="about_us_img">
+            <h2 class="text_header">Force МАЖОР в числах и фактах</h2>
+            <img src="{% static 'back/images/about-us.svg' %}" alt="Logo" height=100%>
+        </div>
+        <div class="text_photo">
+            <div class="description">
+                <p class="text"><b>Хор-бэнд Force Мажор — это сообщество тех, кто искренне любит музыку и рад делиться ею с другими.</b></p>
+                <p class="text">В репертуаре коллектива — популярные песни различных жанров в хоровой аранжировке, песни из мюзиклов и фильмов, классические произведения. Хор-бэнд развивается в направлении show choir, а значит, на сцене хор не только поет, но и танцует и использует элементы актерской игры, создавая полноценное шоу.</p>
+            </div>
+            <img src="{% static 'back/images/photo.jpg' %}" alt="Choir photo" height="420" width="520" class="photo">
+        </div>
+        <div class="container">
+            <a href="#!">
+                <button class="button" style="background-color: rgb(255, 0, 128)"><span class="text">Подробнее</span></button>
+            </a>
+        </div>
+        <div class="news_gallery">
+            <div class="photo">
+            <img src="{% static 'back/images/photo.jpg' %}" alt="Фото 1" height="300" width="300" class="photo">
+            <p class="news_description">Мы крутые</p>
+            </div>
+            <div class="photo">
+            <img src="{% static 'back/images/photo.jpg' %}" alt="Фото 1" height="300" width="300" class="photo">
+            <p class="news_description">Очень крутые</p>
+            </div>
+            <div>
+                <img src="{% static 'back/images/photo.jpg' %}" alt="Фото 1" height="300" width="300"  class="photo">
+                <p class="news_description">Очень-очень крутые</p>
+            </div>
+        </div>
+        <div class="container">
+            <a href="#!">
+                <button class="button" style="background-color: rgb(19, 65, 176)"><span class="text">Все новости</span></button>
+            </a>
+        </div>
+        <div class="text_photo">
+            <img src="{% static 'back/images/photo.jpg' %}" alt="Choir photo" height="420" width="520" class="photo">
+            <div class="description">
+                <p class="text"><b>Как стать частью нашего коллектива</b></p>
+                <p class="text">бла бла ляляля приходите если умеете петь или если вы парень</p>
+                <div class="container">
+                    <a href="#!">
+                        <button class="button" style="background-color: rgb(0, 163, 34)"><span class="text">Подробнее о наборе в хор-бэнд</span></button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="text_photo_upper">
+                <h2 class="text_header">Сотрудничество</h2>
+                <p class="text">мы такие классные просто вау зовите выступим где угодно хоть свадьба хоть поминки только умоляем дайте нормальные микрофоны иначе мы вас проклянем черти и нашлем по 5 порч каждый</p>
+                <img src="{% static 'back/images/photo.jpg' %}" alt="Logo" height=400 width=600 class="photo">
+                <div class="container">
+                    <a href="#!">
+                        <button class="button" style="background-color: rgb(255, 105, 0)"><span class="text">Подробнее о сотрудничестве</span></button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer_container">
+            <div class="footer">
+                <div class="footer_column1">
+                    <a><img src="{% static 'back/images/logo.svg' %}" alt="Logo"></a>
+                    <p style="font-size: 10px; color: rgba(255, 255, 255, 0.33); font-family: pragmatica; margin-top: 50px">Website created by Anna Fadeeva & Anastasiia Romanyuk</p>
+                </div>
+                <div class="footer_column2">
+                    <!-- <a href="about-us.html">О нас</a> -->
+                    <a href="#!">Сотрудничество</a>
+                    <a href="#!">Галерея</a>
+                </div>
+                <div class="footer_column3">
+                    <a href="#!">Ближайшие мероприятия</a>
+                    <a href="#!">Набор в хор-бэнд</a>
+                    <a href="#!">Форма набора</a>
+                </div>
+                <div class="footer_column4">
+                    <a href="#!" style="font-size:30px">VK</a>
+                    <a href="#!" style="font-size:30px">YouTube</a>
+                    <p>choir.fm@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer_bottom">
+                <a href="https://docs.yandex.ru/docs/view?url=ya-disk-public%3A%2F%2Fo35GpYp6QFrOl5eiG5edkw6RNBaGPCGj%2FOftEvVefpyS3Vg0%2FRONyZI8Dny1h%2FMlq%2FJ6bpmRyOJonT3VoXnDag%3D%3D%3A%2F%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D1%8B%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0%2F%D0%9F%D0%BE%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%B0%20%D0%BA%D0%BE%D0%BD%D1%84%D0%B8%D0%B4%D0%B5%D1%86%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D0%B8.pdf&name=%D0%9F%D0%BE%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%B0%20%D0%BA%D0%BE%D0%BD%D1%84%D0%B8%D0%B4%D0%B5%D1%86%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D0%B8.pdf&nosw=1">Политика конфиденциальности</a>
+                <a href="#!" style="margin-left: 514px">Вход для администратора</a>
+            </div>
+        </div>
+    </body>
+</html>

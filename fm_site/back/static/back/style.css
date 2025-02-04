@@ -1,0 +1,265 @@
+body {
+    background-color: white;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+}
+
+.text {
+    font-size: 28px;
+    font-family: pragmatica;
+    font-weight: lighter;
+}
+.header {
+    height: 100vh;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    font-family: pragmatica;
+    position: relative;
+    background-image: url(images/homepage-background.svg);
+}
+
+
+.header a{
+    color: white;
+    
+    font-family: pragmatica;
+    font-weight: lighter;
+    font-size: 28px;
+    text-decoration: none;
+}
+.header_content {
+    position: absolute;
+   
+    top: 10px;
+    left: 5vh;
+    right: 5vh;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: all;
+}
+.menu a{
+    text-decoration: none;
+    white-space: nowrap;
+}
+.menu li {
+    list-style: none;
+    position: relative;
+}
+
+.menu_list {
+    display: flex;
+    align-items: center;
+    column-gap: 15%;
+    align-self: stretch;
+    margin: auto;
+    cursor: pointer;
+    margin-left: 0%;
+}
+.menu_list a:hover{
+    text-decoration:underline;
+}
+.submenu_list {
+    position:absolute;
+    background-color: rgb(255, 255, 255);
+    display: none;
+    text-align: left;
+    white-space: nowrap;
+}
+.submenu_list a{
+    color:black;
+    font-size: 25px;
+    white-space: nowrap;
+}
+.menu_list>li:hover .submenu_list {
+    display: block;
+}
+.page_title {
+    margin-top: 70px;
+    align-items: center;
+    font-family: pragmatica;
+    line-height: 25px;
+    color: white;
+    text-align: center;
+}
+.page_title h1 {
+    font-size: 75px;
+}
+.page_title h2 {
+    font-size: 45px;
+    font-weight: lighter;
+}
+.text_header {
+    color: black;
+    font-family: pragmatica;
+    text-align: center;
+    font-size: 30px;
+}
+
+.about_us_img {
+    margin-left: 0px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.text_photo {
+    display: flex;
+    margin-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+.description {
+    margin-right: 8%;
+    margin-top: 5px;
+    margin-left: 5%
+}
+.container {
+    text-align: center;
+    margin-top: 40px;
+}
+
+
+.button {
+    font-family: pragmatica;
+
+    color: white;
+    border-radius: 20px;
+    display: inline-block;
+    border-radius: 8px;
+    border: none;
+    text-align: center;
+    font-size: 28px;
+    padding: 15px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+    padding-right: 20px;
+}
+  
+.button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+
+.news_gallery {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+
+.photo {
+    text-align: center;
+    border-radius: 20px;
+    margin-right: 2%;
+    margin-left: 2%;
+}
+.news_description {
+    font-family: pragmatica;
+    font-size: 20px;
+    text-align: center;
+}
+
+.text_photo_upper {
+    margin-top: 60px;
+    text-align: center;
+}
+.text_photo_upper p {
+    margin-left: 8%;
+    margin-right: 8%;
+}
+.footer_container {
+    padding-bottom: 6px;
+    background-image: url(images/footer-background.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin-top: 60px;
+}
+.footer{
+    width:100%;
+    height:300px;
+    display:flex;
+    color: white;
+    font-family: pragmatica;
+    justify-content: center;
+    margin:0  auto;
+}
+.footer_container a{
+    color: white;
+    text-decoration: none;
+    font-weight: lighter;
+    display: block;
+    margin-top:20px;
+    font-family: pragmatica;
+}
+.footer_container p{
+    color: white;
+    font-weight: lighter;
+    display: block;
+    margin-top: 28px;
+    font-family: pragmatica;
+}
+.footer_container a:hover {
+    text-decoration: underline;
+}
+.footer_column1 {
+    margin-right: 8%;
+}
+.footer_column1 li{
+    line-height: 70px;
+}
+.footer_column2{
+    margin-right: 8%;
+    margin-top: 30px;
+}
+.footer_column3 {
+    margin-top: 30px;
+    margin-right: 8%;
+}
+.footer_column4 {
+    margin-top: 30px;
+    margin-right: 8%;
+    text-align: center;
+}
+.footer_bottom {
+    display: flex;
+    width:90%;
+    display:flex;
+    color: white;
+    font-family: pragmatica;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+.footer_bottom a {
+    margin-left: 20%;
+    color: #7d8b98;
+    margin-top: 0;
+    
+}
