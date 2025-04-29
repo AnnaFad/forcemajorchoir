@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
+from datetime import timedelta
+import sys
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -38,7 +41,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #'rest_framework',
+    #новое
+    #'oauth2_provider'
+    #'storages',
+    'rest_framework',
+    'corsheaders',
+    'rest_framework_simplejwt',
+    'rest_framework_simplejwt.token_blacklist',
 ]
 
 MIDDLEWARE = [
@@ -49,6 +58,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    #новое
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'fm_site.urls'
@@ -85,6 +97,7 @@ DATABASES = {
         'PORT': '5433'
         
     }
+    
 }
 
 
@@ -128,3 +141,108 @@ STATIC_URL = 'back/static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#Для аутентификации
+#REST_FRAMEWORK = {
+#    'DEFAULT_AUTHENTICATION_CLASSES': (
+#        'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
+#    )
+#}
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+
+}
+
+SIMPLE_JWT = {
+    'ROTATE_REFRESH_TOKENS': True,
+    'BLACKLIST_AFTER_ROTATION': True,
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=30),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=60),
+    'ALGORITHM': 'HS256',
+    'SIGNING_KEY': SECRET_KEY,
+    'AUTH_HEADER_TYPES': ('Bearer',),
+    'AUTH_HEADER_NAME': 'HTTP_AUTHORIZATION',
+    'USER_ID_FIELD': 'id',
+    'USER_ID_CLAIM': 'user_id',
+    'SLIDING_TOKEN_REFRESH_EXP_CLAIM': 'refresh_exp',
+    'SLIDING_TOKEN_LIFETIME': timedelta(days=30),
+    'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=60),
+}
+AUTH_USER_MODEL = 'back.CustomUser'
+#Email
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'noreply.choir.fm@gmail.com'
+EMAIL_HOST_PASSWORD = 'oveuhuhogsqtliqb' 
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'default from email'
+
+#S3 хранилище
+'''
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_ACCESS_KEY_ID = 'minioadmin'
+AWS_SECRET_ACCESS_KEY = 'miniochoiradmin'
+AWS_STORAGE_BUCKET_NAME = 'choir-data-bucket'
+AWS_S3_ENDPOINT_URL = 'http://localhost:9000'
+AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.localhost:9000'
+MEDIA_URL = f'http://127.0.0.1:9000/{AWS_STORAGE_BUCKET_NAME}/'
+#MEDIA_ROOT = f'http://127.0.0.1:9000/{AWS_STORAGE_BUCKET_NAME}/'
+'''
+'''
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+AWS_ACCESS_KEY_ID = 'minioadmin'
+AWS_SECRET_ACCESS_KEY = 'miniochoiradmin'
+AWS_STORAGE_BUCKET_NAME = 'choir-data-bucket'
+AWS_S3_ENDPOINT_URL = 'http://127.0.0.1:9000'  # <<< важно: не 'localhost' Если Django в контейнере, замени localhost на имя сервиса, например http://minio:9000
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+AWS_S3_VERIFY = False  # если сертификаты самоподписанные
+'''
+'''
+MEDIA_ROOT = ''  # Не используется, так как файлы хранятся в MinIO
+MINIO_MEDIA_FILES_BUCKET = 'choir-data-bucket'  # replacement for STATIC_ROOT
+MINIO_STATIC_FILES_BUCKET = 'choir-data-bucket' 
+
+MINIO_ENDPOINT = 'http://localhost:9000'
+MINIO_EXTERNAL_ENDPOINT = 'http://localhost:9000'
+
+MINIO_ACCESS_KEY ='minioadmin'
+MINIO_SECRET_KEY ='miniochoiradmin'
+
+
+
+MINIO_BUCKET_CHECK_ON_SAVE = False  # Create bucket if missing, then save
+'''
+'''
+DEFAULT_FILE_STORAGE = "minio_storage.storage.MinioMediaStorage"
+STATICFILES_STORAGE = "minio_storage.storage.MinioStaticStorage"
+MINIO_STORAGE_ENDPOINT = 'localhost:9000'
+MINIO_STORAGE_ACCESS_KEY = 'minioadmin'
+MINIO_STORAGE_SECRET_KEY = 'miniochoiradmin'
+MINIO_STORAGE_USE_HTTPS = False
+MINIO_STORAGE_MEDIA_OBJECT_METADATA = {"Cache-Control": "max-age=1000"}
+MINIO_STORAGE_MEDIA_BUCKET_NAME = 'choir-data-bucket'
+#MINIO_STORAGE_MEDIA_BACKUP_BUCKET = 'Recycle Bin'
+#MINIO_STORAGE_MEDIA_BACKUP_FORMAT = '%c/'
+MINIO_STORAGE_AUTO_CREATE_MEDIA_BUCKET = True
+MINIO_STORAGE_STATIC_BUCKET_NAME = 'choir-data-bucket'
+MINIO_STORAGE_AUTO_CREATE_STATIC_BUCKET = True
+'''
+
+'''
+AWS_ACCESS_KEY_ID = os.environ.get("minioadmin", "***")
+AWS_SECRET_ACCESS_KEY = os.environ.get("miniochoiradmin", "***")
+AWS_STORAGE_BUCKET_NAME = os.environ.get("choir-data-bucket", "***")
+AWS_S3_ENDPOINT_URL = os.environ.get("S3_ENDPOINT", "http://127.0.0.1:9000")
+
+# Staticfiles backend & URL
+STATICFILES_STORAGE = "utils.storage_backends.StaticStorage"
+STATIC_URL = f"{AWS_S3_ENDPOINT_URL}/{AWS_STORAGE_BUCKET_NAME}/static/"
+
+# Media files backend & URL
+DEFAULT_FILE_STORAGE = "utils.storage_backends.PublicMediaStorage"
+MEDIA_URL = f"{AWS_S3_ENDPOINT_URL}/{AWS_STORAGE_BUCKET_NAME}/media/"'''
