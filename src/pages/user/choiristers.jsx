@@ -1,0 +1,176 @@
+export const soprano = [
+    {
+      first_name: 'Анна',
+      last_name: 'Фадеева',
+      voice: 'Первое сопрано',
+      photo: '/src/assets/choirister.jpg',
+    },
+    {
+        first_name: 'Полина',
+        last_name: 'Тихонова',
+        voice: 'Первое сопрано',
+        photo: '/src/assets/choirister.jpg',
+      },
+      {
+        first_name: 'Дарья',
+        last_name: 'Смык',
+        voice: 'Первое сопрано',
+        photo: '/src/assets/choirister.jpg',
+      },
+      {
+        first_name: 'Маргарита',
+        last_name: 'Кожушко',
+        voice: 'Первое сопрано',
+        photo: '/src/assets/choirister.jpg',
+      },
+      {
+        first_name: 'Злата',
+        last_name: 'Кудинова',
+        voice: 'Первое сопрано',
+        photo: '/src/assets/choirister.jpg',
+      },
+      {
+        first_name: 'Дарья',
+        last_name: 'Горшкова',
+        voice: 'Второе сопрано',
+        photo: '/src/assets/choirister.jpg',
+      },
+      {
+        first_name: 'Юлия',
+        last_name: 'Тужилина',
+        voice: 'Второе сопрано',
+        photo: '/src/assets/choirister.jpg',
+      },
+];
+export const alto = [
+    {
+      first_name: 'Александра',
+      last_name: 'Кисарина',
+      voice: 'Первый альт',
+      photo: '/src/assets/choirister.jpg',
+    },
+    {
+        first_name: 'Ксения',
+        last_name: 'Пичугина',
+        voice: 'Первый альт',
+        photo: '/src/assets/choirister.jpg',
+      },
+      {
+        first_name: 'Мария',
+        last_name: 'Ахматгалеева',
+        voice: 'Первый альт',
+        photo: '/src/assets/choirister.jpg',
+      },
+      {
+        first_name: 'Анастасия',
+        last_name: 'Куренкова',
+        voice: 'Первый альт',
+        photo: '/src/assets/choirister.jpg',
+      },
+      {
+        first_name: 'Екатерина',
+        last_name: 'Кичко',
+        voice: 'Первый альт',
+        photo: '/src/assets/choirister.jpg',
+      },
+      {
+        first_name: 'Валерия',
+        last_name: 'Дмитрова',
+        voice: 'Второй альт',
+        photo: '/src/assets/choirister.jpg',
+      },
+      {
+        first_name: 'Кира',
+        last_name: 'Осипова',
+        voice: 'Второй альт',
+        photo: '/src/assets/choirister.jpg',
+      },
+      {
+        first_name: 'Мария',
+        last_name: 'Данилова',
+        voice: 'Второй альт',
+        photo: '/src/assets/choirister.jpg',
+      },
+      {
+        first_name: 'Елена',
+        last_name: 'Костикова',
+        voice: 'Второй альт',
+        photo: '/src/assets/choirister.jpg',
+      },
+];
+export const tenor = [
+      {
+        first_name: 'Михаил',
+        last_name: 'Тужилин',
+        voice: 'Первый тенор',
+        photo: '/src/assets/choirister.jpg',
+      },
+      {
+        first_name: 'Евгений',
+        last_name: 'Таранченко',
+        voice: 'Первый тенор',
+        photo: '/src/assets/choirister.jpg',
+      },
+      {
+        first_name: 'Александр',
+        last_name: 'Левин',
+        voice: 'Первый тенор',
+        photo: '/src/assets/choirister.jpg',
+      },
+      {
+        first_name: 'Марат',
+        last_name: 'Мансуров',
+        voice: 'Второй тенор',
+        photo: '/src/assets/choirister.jpg',
+      },
+      {
+        first_name: 'Иван',
+        last_name: 'Глазко',
+        voice: 'Второй тенор',
+        photo: '/src/assets/choirister.jpg',
+      },
+      {
+        first_name: 'Даниил',
+        last_name: 'Дудин',
+        voice: 'Второй тенор',
+        photo: '/src/assets/choirister.jpg',
+      },
+];
+export const bass = [
+    {
+      first_name: 'Эмиль',
+      last_name: 'Карачик',
+      voice: 'Бас',
+      photo: '/src/assets/choirister.jpg',
+    },
+    {
+        first_name: 'Андрей',
+        last_name: 'Ладыгин',
+        voice: 'Бас',
+        photo: '/src/assets/choirister.jpg',
+      },
+      {
+        first_name: 'Дмитрий',
+        last_name: 'Фалин',
+        voice: 'Бас',
+        photo: '/src/assets/choirister.jpg',
+      },
+      {
+        first_name: 'Михаил',
+        last_name: 'Моисеев',
+        voice: 'Бас',
+        photo: '/src/assets/choirister.jpg',
+      },
+      {
+        first_name: 'Степан',
+        last_name: 'Есин',
+        voice: 'Баритон',
+        photo: '/src/assets/choirister.jpg',
+      },
+      {
+        first_name: 'Игорь',
+        last_name: 'Федоров',
+        voice: 'Баритон',
+        photo: '/src/assets/choirister.jpg',
+      },
+];
