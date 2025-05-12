@@ -1,0 +1,17 @@
+.text_photo {
+    display: flex;
+    margin-left: 10%;
+    margin-right: 10%;
+    position: relative;
+    margin-bottom: 5%;
+    margin-top: 5%;
+    max-width: 100%;
+}
+.description {
+    margin-right: 3%;
+    margin-top: 0%;
+    margin-left: 3%;
+    font-family: pragmatica;
+    font-weight: lighter;
+    font-size: 1.1vw;
+}

@@ -1,0 +1,15 @@
+.page-title {
+    margin-top: 10%;
+    align-items: center;
+    font-family: pragmatica;
+    line-height: 25px;
+    color: white;
+    text-align: center;
+}
+.page-title h1 {
+    font-size: 6vw;
+}
+.page-title h2 {
+    font-size: 4vw;
+    font-weight: lighter;
+}
