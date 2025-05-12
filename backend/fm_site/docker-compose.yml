@@ -1,0 +1,72 @@
+version: '3.8'
+# Поднимаем два сервиса, django И node
+services:
+  django:
+    #говорим что build будет из dockerfile который располагается ./django/django_project/
+    build: .
+    # имя контейнера
+    container_name: djangoapp
+    # перезапускать контейнер при завершении выполнения работы или при аварийном завершении
+    restart: always
+    # проброс портов внутрь контейнера, 8000 порт на хост машине будет проброшен внутрь контейнера на такой же 8000 порт
+    ports:
+      - 8000:8000
+    # команда при старте контейнера
+    command: >
+      sh -c "python manage.py runserver 0.0.0.0:8000"
+    # Для статики мы подключаем два volume (чтобы при перезапуске наши данные не пропадали)), создадим их ниже.
+    volumes:
+      - django_static_volume:/usr/src/app/static
+      - django_media_volume:/usr/src/app/media
+    depends_on:
+      - postgres
+    env_file:
+      - ./.env
+    # подключаем к сети myNetwork (в целом не обязательно, но до кучи чтоб было)
+    #networks:
+    #  - myNetwork
+
+  #node:
+    # Аналогично, build из ./reactapp/dockerfile
+  #  build: ./reactvitechoirsite/
+    # имя контейнера
+  #  container_name: reactapp
+    # рестарт
+  #  restart: always
+    # порты
+  #  ports:
+  #    - 3000:3000
+    # команда при запуске
+  #  command: npm start
+    # Зависимость. нет смысла ноде, если некому отдать ей данные. поэтому сначала стартуем сервис django, а за ней node
+  #  depends_on:
+  #    - django
+    # Сеть та же, все контейнеры должны крутиться в однйо сети чтобы видеть друг друга.
+    #networks:
+    #  - myNetwork
+  postgres:
+    image: postgres:14.5
+    restart: always
+    volumes:
+      - ./data:/var/lib/postgresql/data
+      #- ./pg_hba.conf:/etc/postgresql/pg_hba.conf
+      #- ./init.sql:/docker-entrypoint-initdb.d/init.sql 
+      #- ./data-slave:/var/lib/postgresql/data-slave
+      #- ./init-script:/etc/postgresql/init-script
+      #- ./postgresql/.pg_service.conf:/etc/postgresql/.pg_service.conf
+      #- ./postgresql/.my_pgpass:/etc/postgresql/.my_pgpass
+      #- ./init.sql:/etc/postgresql/docker-entrypoint-initdb.d/init.sql #/etc/postgresql/docker-entrypoint-initdb.d/init.sql #Новая строчка кода
+    #ports:
+    #  - "127.0.0.1:5433:5432"
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=pgpass
+      - POSTGRES_DB=my_bd
+
+# создаём два volume для статики
+volumes:
+  #./django/django_project:
+  django_static_volume:
+  django_media_volume:
+  #./data:
+ # ./pg_hba.conf:
